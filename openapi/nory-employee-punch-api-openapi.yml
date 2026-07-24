@@ -1,0 +1,81 @@
+swagger: '2.0'
+info:
+  title: Nory Middleware - Sandbox Environment Authorization Employee Punch API
+  version: 1.0.0
+  description: 'Nory '
+servers:
+- https://sandbox.nory.ai
+- http://localhost:8000
+basePath: /app/v1/
+schemes:
+- https
+- http
+tags:
+- name: Employee Punch
+paths:
+  /punch/{id}:
+    get:
+      tags:
+      - Employee Punch
+      name: Get Punch by ID
+      summary: Get Punch data
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required:
+        - name
+      responses:
+        '200':
+          description: Requested data
+          schema: null
+        '401':
+          description: Permission error
+        '500':
+          description: Internal server error
+  /punch:
+    get:
+      tags:
+      - Employee Punch
+      name: Get Punch Data for Employee
+      summary: Get Data from Labour service - Employee Punch information.
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: employee_id
+        schema:
+          type: string
+        required:
+        - name
+      - in: query
+        name: limit
+        schema:
+          type: number
+        required:
+        - name
+      responses:
+        '200':
+          description: Requested data
+          schema: null
+        '401':
+          description: Permission error
+        '500':
+          description: Internal server error
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    scheme: bearer
+    in: header

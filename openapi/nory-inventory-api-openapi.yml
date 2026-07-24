@@ -1,0 +1,257 @@
+swagger: '2.0'
+info:
+  title: Nory Middleware - Sandbox Environment Authorization Inventory API
+  version: 1.0.0
+  description: 'Nory '
+servers:
+- https://sandbox.nory.ai
+- http://localhost:8000
+basePath: /app/v1/
+schemes:
+- https
+- http
+tags:
+- name: Inventory
+paths:
+  /inventory/ingest:
+    post:
+      tags:
+      - Inventory
+      name: Ingest
+      summary: Ingest items / batch items / menu items
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/Ingest'
+      responses:
+        '200':
+          description: Successful ingest message
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              data:
+                type: string
+        '400':
+          description: Incorrect data supplied
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+  /inventory/branches/{branchId}/counts:
+    get:
+      tags:
+      - Inventory
+      name: Counts
+      summary: Get counts of a branch
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: branchId
+        schema: string
+      responses:
+        '200':
+          description: List of counts
+          schema:
+            type: object
+            properties:
+              counts:
+                type: array
+                items:
+                  $ref: '#/definitions/Count'
+        '400':
+          description: Incorrect data supplied
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+    post:
+      tags:
+      - Inventory
+      name: Counts
+      summary: Create a count
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: branchId
+        schema: string
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/Count'
+      responses:
+        '200':
+          description: Created count
+          schema:
+            type: object
+            properties:
+              count:
+                $ref: '#/definitions/Count'
+        '400':
+          description: Incorrect data supplied
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+        '500':
+          description: Unexpected error
+  /inventory/branches/{branchId}/deliveries:
+    get:
+      tags:
+      - Inventory
+      name: Deliveries
+      summary: Get deliveries of a branch
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: branchId
+        schema: string
+      responses:
+        '200':
+          description: List of deliveries
+          schema:
+            type: object
+            properties:
+              deliveries:
+                type: array
+                items:
+                  $ref: '#/definitions/Delivery'
+        '400':
+          description: Incorrect data supplied
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+  /inventory/suppliers:
+    get:
+      tags:
+      - Inventory
+      name: Suppliers
+      summary: Get all suppliers
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: null
+      responses:
+        '200':
+          description: List of suppliers
+          schema:
+            type: object
+            properties:
+              suppliers:
+                type: array
+                items:
+                  $ref: '#/definitions/Supplier'
+        '400':
+          description: Incorrect data supplied
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+definitions:
+  BrandItemCount:
+    type: object
+    properties:
+      brand_item:
+        type: string
+      unit_counts:
+        type: array
+        items:
+          $ref: '#/definitions/BrandItemUnitCount'
+  BrandItemUnitCount:
+    type: object
+    properties:
+      unit:
+        type: array
+        items:
+          $ref: '#/definitions/Unit'
+      quantity:
+        type: number
+  Count:
+    type: object
+    properties:
+      id:
+        type: string
+      created:
+        type: string
+        format: date-time
+      modified:
+        type: string
+        format: date-time
+      type:
+        type: string
+        enum:
+        - full
+      status:
+        type: string
+        enum:
+        - draft
+        - completed
+      branch_id:
+        type: string
+      brand_item_counts:
+        type: array
+        items:
+          $ref: '#/definitions/BrandItemCount'
+  BaseUnit:
+    type: object
+    properties:
+      unit_of_measure:
+        type: number
+  Unit:
+    type: object
+    properties:
+      unit_type:
+        type: string
+        enum:
+        - base
+        - package
+        - case
+      unit_body:
+        $ref: '#/definitions/BaseUnit'
+  Ingest:
+    type: object
+    properties:
+      brand_id:
+        type: string
+      ingest_type:
+        type: string
+      content:
+        type: string
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    scheme: bearer
+    in: header

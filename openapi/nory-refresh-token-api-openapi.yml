@@ -1,0 +1,40 @@
+swagger: '2.0'
+info:
+  title: Nory Middleware - Sandbox Environment Authorization Refresh token API
+  version: 1.0.0
+  description: 'Nory '
+servers:
+- https://sandbox.nory.ai
+- http://localhost:8000
+basePath: /app/v1/
+schemes:
+- https
+- http
+tags:
+- name: Refresh token
+paths:
+  /auth/refreshToken:
+    post:
+      tags:
+      - Refresh token
+      name: Refresh Token
+      summary: Get new Access Token by passing Refresh Token, pass the RefershToken along with authorization headers
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      responses:
+        '200':
+          description: Token Sucess
+        '401':
+          description: Bad username, not found in db
+        '403':
+          description: Username and password don't match
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    scheme: bearer
+    in: header

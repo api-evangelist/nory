@@ -1,0 +1,170 @@
+swagger: '2.0'
+info:
+  title: Nory Middleware - Sandbox Environment Authorization Inventory Orders API
+  version: 1.0.0
+  description: 'Nory '
+servers:
+- https://sandbox.nory.ai
+- http://localhost:8000
+basePath: /app/v1/
+schemes:
+- https
+- http
+tags:
+- name: Inventory Orders
+paths:
+  /inventory/brands/{brandId}/branches/{branchId}/recommended-order:
+    get:
+      tags:
+      - Inventory Orders
+      name: RecommendedOrders
+      summary: Get recommended purchase orders for a branch
+      description: Returns recommended orders based on demand forecasting. Maps to inventory.handlers.recommended_order.get_recommended_orders.
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: brandId
+        required: true
+        schema:
+          type: string
+        description: External brand ID
+      - in: path
+        name: branchId
+        required: true
+        schema:
+          type: string
+        description: External branch ID
+      - in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Start date for recommendations (defaults to today)
+      - in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+          format: date
+        description: End date for recommendations (defaults to start_date + 14 days)
+      - in: query
+        name: operation
+        required: false
+        schema:
+          type: string
+          enum:
+          - retrieve
+          - generate
+        description: Operation mode - "retrieve" returns cached orders, "generate" creates new recommendations (defaults to "retrieve"). Generate is deprecated - use POST instead.
+      responses:
+        '200':
+          description: JSON object containing the recommended orders and details of data they were based on
+        '400':
+          description: Incorrect data supplied
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+        '500':
+          description: Unexpected error
+    post:
+      tags:
+      - Inventory Orders
+      name: GenerateRecommendedOrders
+      summary: Generate recommended purchase orders for a branch
+      description: Generates new recommended orders based on demand forecasting. Maps to inventory.handlers.recommended_order.generate_recommended_orders_handler.
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: brandId
+        required: true
+        schema:
+          type: string
+        description: External brand ID
+      - in: path
+        name: branchId
+        required: true
+        schema:
+          type: string
+        description: External branch ID
+      - in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Start date for recommendations (defaults to today)
+      - in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+          format: date
+        description: End date for recommendations (defaults to start_date + 14 days)
+      responses:
+        '200':
+          description: JSON object containing the generated recommended orders
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+        '500':
+          description: Unexpected error
+  /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept:
+    post:
+      tags:
+      - Inventory Orders
+      name: AcceptRecommendedOrder
+      summary: Accept (or amend) a recommended order and create a purchase order
+      description: Accepts a recommended order, optionally with edits, creates a PurchaseOrder linked to the recommended order, and returns the PO along with a classification ("accepted" when submitted quantities match the recommendation exactly, "amended" when the user edited them). Maps to inventory.handlers.recommended_order.recommended_order_accept_post.
+      security:
+      - bearerAuth: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: brandId
+        required: true
+        schema:
+          type: string
+        description: External brand ID
+      - in: path
+        name: branchId
+        required: true
+        schema:
+          type: string
+        description: External branch ID
+      responses:
+        '200':
+          description: Object containing the created purchase_order and a classification of "accepted" or "amended"
+        '400':
+          description: Validation error
+        '401':
+          description: No auth token
+        '403':
+          description: JWT token and username from client don't match
+        '404':
+          description: Recommended order not found or stale
+        '409':
+          description: Recommended order is mid-creation or already submitted
+        '500':
+          description: Unexpected error
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    scheme: bearer
+    in: header
