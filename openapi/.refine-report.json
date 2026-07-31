@@ -1,0 +1,35 @@
+{
+  "provider": "nory",
+  "sources": [
+    "nory-authorization-api-openapi.yml",
+    "nory-branch-api-openapi.yml",
+    "nory-brands-api-openapi.yml",
+    "nory-employee-punch-api-openapi.yml",
+    "nory-integration-api-openapi.yml",
+    "nory-inventory-api-openapi.yml",
+    "nory-inventory-orders-api-openapi.yml",
+    "nory-location-settings-api-openapi.yml",
+    "nory-refresh-token-api-openapi.yml",
+    "nory-templates-api-openapi.yml"
+  ],
+  "outputs": [
+    "nory-authorization-api-openapi.yml",
+    "nory-branch-api-openapi.yml",
+    "nory-brands-api-openapi.yml",
+    "nory-employee-punch-api-openapi.yml",
+    "nory-integration-api-openapi.yml",
+    "nory-inventory-api-openapi.yml",
+    "nory-inventory-orders-api-openapi.yml",
+    "nory-location-settings-api-openapi.yml",
+    "nory-refresh-token-api-openapi.yml",
+    "nory-templates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "nory-inventory-api-openapi.yml: dangling $ref: #/definitions/Delivery",
+    "nory-inventory-api-openapi.yml: dangling $ref: #/definitions/Supplier"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

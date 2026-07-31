@@ -1,0 +1,73 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nory-middleware-openapi.json
+notes: >-
+  Entity graph derived from the OpenAPI definitions and the id-reference fields
+  used across paths (brand_id, branchId, brandId, supplier). Nory models a
+  Brand → Branch hierarchy, with Inventory (counts, deliveries, suppliers,
+  recommended orders), Labour (punch), Templates (scheduling) and Location
+  Settings hanging off a branch.
+entities:
+  - name: Brand
+    id_field: brand_id
+    relationships:
+      - has_many: Branch
+      - has_many: BrandItem
+  - name: Branch
+    id_field: branchId
+    relationships:
+      - belongs_to: Brand
+        via: brand_id
+      - has_many: Count
+      - has_many: Delivery
+      - has_many: RecommendedOrder
+      - has_many: Template
+      - has_many: CustomHoliday
+  - name: Ingest
+    fields: [brand_id, ingest_type, content]
+    relationships:
+      - belongs_to: Brand
+        via: brand_id
+  - name: Count
+    fields: [id, created, modified, type, status, branch_id, brand_item_counts]
+    relationships:
+      - belongs_to: Branch
+        via: branch_id
+      - has_many: BrandItemCount
+        via: brand_item_counts
+  - name: BrandItemCount
+    fields: [brand_item, unit_counts]
+    relationships:
+      - has_many: BrandItemUnitCount
+        via: unit_counts
+  - name: BrandItemUnitCount
+    fields: [unit, quantity]
+    relationships:
+      - has_one: Unit
+        via: unit
+  - name: Unit
+    fields: [unit_type, unit_body]
+  - name: BaseUnit
+    fields: [unit_of_measure]
+  - name: RecommendedOrder
+    fields: [id, branch, supplier, delivery_date, delivery_slot, status, items]
+    relationships:
+      - belongs_to: Branch
+        via: branch
+      - belongs_to: Supplier
+        via: supplier
+      - has_many: RecommendedOrderItem
+        via: items
+  - name: RecommendedOrderItem
+    fields: [brand_item, order_quantity, priority_score, urgency, unit, order_date, cut_off_time, delivery_date, run_out_date]
+    relationships:
+      - has_one: Unit
+        via: unit
+  - name: Supplier
+  - name: Punch
+    notes: Employee punch (labour clock-in/out) records, retrieved by id or filtered.
+  - name: Template
+    notes: Scheduling templates for a branch (create, apply, recommend, delete).
+  - name: CustomHoliday
+    relationships:
+      - belongs_to: Branch

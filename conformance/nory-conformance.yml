@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nory-middleware-openapi.json
+standards:
+  - id: openapi-swagger-2.0
+    conforms: true
+    evidence: Published Swagger 2.0 definition at https://api.nory.ai/swagger.json
+  - id: oauth2
+    conforms: false
+    evidence: Auth is a bearer token obtained via email/password at POST /auth/token; no OAuth2 flows declared.
+  - id: oidc
+    conforms: false
+  - id: bearer-token-auth
+    conforms: true
+    evidence: securityDefinitions bearerAuth, Authorization header
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors returned as plain JSON; no application/problem+json media type declared.
+  - id: json-api
+    conforms: false
+  - id: rest-json
+    conforms: true
+    evidence: JSON request/response bodies over HTTPS with conventional HTTP status codes.
+  - id: uri-path-versioning
+    conforms: true
+    evidence: basePath /app/v1/

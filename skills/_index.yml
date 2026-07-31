@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/nory-middleware-openapi.json
+skills:
+  - file: nory-recommended-order.md
+    name: Generate and accept a recommended purchase order
+    api: openapi/nory-middleware-openapi.json
+    operations:
+      - "POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order"
+      - "POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept"
+  - file: nory-inventory-count.md
+    name: Ingest items and record an inventory count
+    api: openapi/nory-middleware-openapi.json
+    operations:
+      - "POST /inventory/ingest"
+      - "POST /inventory/branches/{branchId}/counts"

@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nory-middleware-openapi.json
+summary: >-
+  Cross-cutting request/response semantics for the Nory Middleware (Sandbox)
+  API, derived from the published Swagger 2.0 definition. This is a partner /
+  integration middleware exposing branch, brand, inventory, labour (punch),
+  location-settings and scheduling-template resources.
+authentication:
+  style: bearer-token
+  header: Authorization
+  scheme: bearer
+  token_endpoint: POST /auth/token
+  refresh_endpoint: POST /auth/refreshToken
+  notes: Exchange email + password for an access token and a refresh token; send the access token as a bearer token on every call. See authentication/nory-authentication.yml.
+base_url: https://sandbox.nory.ai
+base_path: /app/v1/
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: basePath /app/v1/
+idempotency:
+  supported: false
+  evidence: No Idempotency-Key parameter or header documented in the spec.
+pagination:
+  supported: partial
+  evidence: A `limit` query parameter appears on collection endpoints; no cursor/offset envelope is documented.
+error_envelope:
+  media_type: application/json
+  format: plain
+  reference: errors/nory-problem-types.yml
+rate_limiting:
+  documented: false
+content_types:
+  request: application/json
+  response: application/json

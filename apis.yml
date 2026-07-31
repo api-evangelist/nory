@@ -1,7 +1,18 @@
 aid: nory
 name: Nory
-description: Nory is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Nory is an AI-powered restaurant management platform (an "agentic AI
+  restaurant operating system") founded in Ireland in 2019 by Conor Sheridan.
+  It unifies business intelligence, inventory, workforce scheduling and payroll
+  into one control centre, using real-time data and predictive AI (demand-based
+  ordering, live P&L, labour forecasting) to cut food waste and labour cost
+  across single-site and multi-location restaurant groups. Nory connects to POS
+  and hospitality systems such as Toast, Lightspeed, Square, SumUp, Vita Mojo,
+  Clover, Zonal, Revel, Oracle Micros and Shift4, and exposes a partner-facing
+  Middleware API (published as a Swagger 2.0 sandbox definition) covering
+  brands, branches, inventory counts/deliveries/suppliers, AI recommended
+  purchase orders, employee punch/labour data, location settings and scheduling
+  templates. Nory raised a $37M Series B in 2025 and is backed by Accel.
 url: https://raw.githubusercontent.com/api-evangelist/nory/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +20,173 @@ x-backed-by:
 - accel
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://nory.ai/favicon.ico
 tags:
 - Company
-apis: []
+- Restaurant
+- Hospitality
+- Inventory
+- Workforce
+- Payroll
+- Point of Sale
+- Artificial Intelligence
+- Food and Beverage
+apis:
+- aid: nory:nory-authorization-api
+  name: Nory Authorization API
+  description: The Authorization API from Nory — 1 operation(s) for authorization.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Authorization
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-authorization-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-branch-api
+  name: Nory Branch API
+  description: The Branch API from Nory — 1 operation(s) for branch.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Branch
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-branch-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-brands-api
+  name: Nory Brands API
+  description: The Brands API from Nory — 1 operation(s) for brands.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Brands
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-brands-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-employee-punch-api
+  name: Nory Employee Punch API
+  description: The Employee Punch API from Nory — 2 operation(s) for employee punch.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Employee Punch
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-employee-punch-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-integration-api
+  name: Nory Integration API
+  description: The Integration API from Nory — 1 operation(s) for integration.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-integration-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-inventory-api
+  name: Nory Inventory API
+  description: The Inventory API from Nory — 4 operation(s) for inventory.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-inventory-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-inventory-orders-api
+  name: Nory Inventory Orders API
+  description: The Inventory Orders API from Nory — 2 operation(s) for inventory orders.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Inventory Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-inventory-orders-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-location-settings-api
+  name: Nory Location Settings API
+  description: The Location Settings API from Nory — 1 operation(s) for location settings.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Location Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-location-settings-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-refresh-token-api
+  name: Nory Refresh token API
+  description: The Refresh token API from Nory — 1 operation(s) for refresh token.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Refresh token
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-refresh-token-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
+- aid: nory:nory-templates-api
+  name: Nory Templates API
+  description: The Templates API from Nory — 5 operation(s) for templates.
+  humanURL: https://nory.ai/integrations
+  baseURL: https://sandbox.nory.ai/app/v1
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/nory-templates-api-openapi.yml
+  - type: APIReference
+    url: https://api.nory.ai/swagger.json
+  - type: Authentication
+    url: authentication/nory-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +195,48 @@ maintainers:
 common:
 - type: Website
   url: https://nory.ai/
+- type: Login
+  url: https://app.nory.ai/
+- type: Blog
+  url: https://nory.ai/blog
+- type: Support
+  url: https://nory.ai/contact
+- type: Integrations
+  url: https://nory.ai/integrations
+- type: PrivacyPolicy
+  url: https://nory.ai/legal/terms-privacy
+- type: TermsOfService
+  url: https://nory.ai/legal/terms-and-conditions
+- type: OpenAPI
+  url: openapi/nory-middleware-openapi.json
+- type: Overlay
+  url: overlays/nory-middleware-overlay.yaml
+- type: Authentication
+  url: authentication/nory-authentication.yml
+- type: ErrorCatalog
+  url: errors/nory-problem-types.yml
+- type: Conventions
+  url: conventions/nory-conventions.yml
+- type: DataModel
+  url: data-model/nory-data-model.yml
+- type: MCPServer
+  url: mcp/nory-mcp.yml
+- type: Conformance
+  url: conformance/nory-conformance.yml
+- type: Lifecycle
+  url: lifecycle/nory-lifecycle.yml
+- type: Sandbox
+  url: sandbox/nory-sandbox.yml
+- type: WellKnown
+  url: well-known/nory-well-known.yml
+- type: DomainSecurity
+  url: security/nory-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/nory-llms.txt
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

@@ -1,0 +1,48 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nory-middleware-openapi.json
+format: plain
+notes: >-
+  Nory Middleware returns conventional HTTP status codes with a plain JSON body
+  (no application/problem+json media type is declared in the spec). Titles and
+  causes below are taken verbatim from the OpenAPI response descriptions.
+problems:
+  - status: 400
+    title: Bad request
+    causes:
+      - Bad request
+      - Incorrect data supplied
+      - Validation error
+    remediation: Validate the request body/params against the schema before retrying.
+  - status: 401
+    title: Unauthorized
+    causes:
+      - No auth token
+      - Bad username, not found in db
+      - Permission error
+    remediation: Supply a valid bearer access token in the Authorization header; re-authenticate via POST /auth/token if missing/expired.
+  - status: 403
+    title: Forbidden
+    causes:
+      - JWT token invalid
+      - JWT token and username from client don't match
+      - Username and password don't match
+    remediation: Ensure the token belongs to the authenticated user and credentials match; refresh via POST /auth/refreshToken.
+  - status: 404
+    title: Not found
+    causes:
+      - Recommended order not found or stale
+    source_operation: GET /inventory/brands/{brandId}/branches/{branchId}/recommended-order
+    remediation: Re-generate the recommended order before accepting it.
+  - status: 409
+    title: Conflict
+    causes:
+      - Recommended order is mid-creation or already submitted
+    source_operation: POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept
+    remediation: Wait for in-progress generation to complete; do not re-submit an already-submitted order.
+  - status: 500
+    title: Internal server error
+    causes:
+      - Internal server error
+      - Unexpected error
+    remediation: Retry with backoff; contact Nory support if it persists.

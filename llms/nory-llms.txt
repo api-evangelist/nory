@@ -1,0 +1,120 @@
+# Nory: AI-Powered Restaurant Management
+
+> The all-in-one platform to streamline operations, boost profits, and empower smarter decision-making.
+
+---
+
+## 🚀 Platform
+*Core features and tools of the Nory platform.*
+
+- [**Product Overview**](https://nory.ai/product): Get full visibility of sales, inventory, and workforce in one unified platform.
+- **Business Intelligence & Analytics**
+    - [**Business Intelligence**](https://nory.ai/product/business-intelligence): Turn real-time data into profit with AI-powered tracking and insights.
+    - [**Restaurant Analytics (US)**](https://nory.ai/operations/business-intelligence-us): Uncover growth opportunities and streamline financial planning for US groups.
+    - [**Live P&L Reports**](https://nory.ai/blog/nory-live-pl-the-power-to-drive-restaurant-growth-with-live-data): Track margins and costs dynamically with real-time profit and loss reporting.
+    - [**Budget Planning**](https://nory.ai/blog/track-performance-with-budgets-from-nory): Plan and track financial performance with integrated budgeting tools.
+- **Operations Management**
+    - [**Inventory Management**](https://nory.ai/product/inventory): Control stock, reduce waste, and automate reordering with real-time tracking.
+    - [**Inventory Control (US)**](https://nory.ai/operations/inventory-us): Minimize spoilage and automate restocking for total cost control in the US.
+    - [**Demand-Based Ordering (DBO)**](https://nory.ai/blog/demand-based-ordering-dbo-how-ai-can-benefit-inventory-planning): Use AI-driven demand models to automate ordering and minimize food waste.
+- **Workforce & Payroll**
+    - [**Workforce Management**](https://nory.ai/product/workforce-management): Build smarter, demand-based schedules and track team performance.
+    - [**Workforce Management (US)**](https://nory.ai/operations/workforce-management-us): Manage US teams with automated scheduling, performance tracking, and payroll.
+    - [**Payroll Automation**](https://nory.ai/product/payroll): Automate payroll, taxes, and payslips in one streamlined workflow.
+- **Financial Growth**
+    - [**Nory Capital**](https://nory.ai/nory-capital): Access up to £2M in restaurant financing in 24 hours with flexible repayments.
+
+---
+
+## 🧑‍🍳 Solutions
+*Tailored solutions for different business types and needs.*
+
+- **By Business Type**
+    - [**Independent Brands**](https://nory.ai/solutions/independent-brands): AI tools to simplify operations and boost profit margins for independents.
+    - [**Multi-Location Brands**](https://nory.ai/solutions/multi-location-brands): Centralize data and decision-making across all restaurant locations.
+    - [**Franchise Networks**](https://nory.ai/solutions/franchise-networks): Simplify franchise management for consistency, scalability, and profitability.
+    - [**Enterprise Groups**](https://nory.ai/solutions/enterprise-groups): Advanced analytics and financial control for large-scale operators.
+- **By Restaurant Category**
+    - [**QSR (Quick Service Restaurants)**](https://nory.ai/operations/qsr): Improve order accuracy and speed with AI-assisted operational workflows.
+    - [**Coffee Businesses**](https://nory.ai/operations/coffee): Optimize stock, labor, and sales performance for cafes and coffee chains.
+    - [**Casual Dining**](https://nory.ai/blog/how-to-overcome-casual-dining-restaurant-challenges): Solve key challenges in the casual dining sector with tech-led solutions.
+    - [**Full-Service Restaurants**](https://nory.ai/blog/how-full-service-restaurants-can-overcome-challenges-to-increase-profitability): Enhance service quality and profitability through smarter decision-making.
+    - [**Pub & Bar Management**](https://nory.ai/blog/how-to-overcome-common-challenges-facing-pubs-and-bars): Overcome the five biggest challenges with a real-time operations platform.
+- **Integrations**
+    - [**Integrations Hub**](https://nory.ai/integrations): Seamlessly connect Nory with your POS, HR, and accounting tools.
+    - [**Lightspeed x Nory**](https://nory.ai/blog/partnerships-lightspeed-x-nory): A connected POS and management experience.
+    - [**Toast x Nory**](https://nory.ai/blog/toast-nory-integration): End-to-end management with Toast ePOS integration.
+    - [**SumUp x Nory**](https://nory.ai/blog/sumup-nory-pos-integration): A 360° view of business performance with SumUp POS.
+    - [**Vita Mojo x Nory**](https://nory.ai/blog/vita-mojo-x-nory-a-new-partnership-to-streamline-your-pos-integration): Enhance efficiency and speed of service.
+    - [**Shift4 x Nory**](https://nory.ai/blog/shift4-nory-integration): Optimize costs and streamline restaurant payments.
+
+---
+
+## 📚 Resources
+*Customer stories, blog insights, and educational content.*
+
+- [**Success Stories**](https://nory.ai/success-stories): See how restaurants have boosted margins and reduced waste with Nory.
+- [**Customer Reviews**](https://nory.ai/customer-reviews): Read real results and growth stories from restaurant owners.
+- [**Nory Benchmark**](https://nory.ai/benchmark): Compare your restaurant’s performance against industry averages.
+- [**Podcasts — What’s Cooking?**](https://nory.ai/podcasts): Nory’s podcast for hospitality leaders.
+
+### Blog & Insights
+- [**Main Blog Page**](https://nory.ai/blog): Latest insights, management strategies, and industry trends.
+
+- **Operations & Efficiency**
+    - [**AI-Driven Inventory Planning**](https://nory.ai/blog/demand-based-ordering-dbo-how-ai-can-benefit-inventory-planning): Use predictive demand models to optimise stock and reduce waste.
+    - [**Inventory Turnover Strategy**](https://nory.ai/blog/restaurant-inventory-turnover): Master inventory efficiency metrics to free up cash flow.
+    - [**Cut Costs Without Compromising Quality**](https://nory.ai/blog/cut-costs-without-compromising-quality): Manage labour and supply costs while maintaining brand standards.
+    - [**Operational Success Blueprint**](https://nory.ai/blog/a-blueprint-to-operational-success): Build scalable, profitable systems with structured processes.
+
+- **Finance & Profitability**
+    - [**Restaurant P&L Optimization**](https://nory.ai/blog/profit-and-loss-statement-restaurant-operations): Translate financial metrics into actionable operational insights.
+    - [**Reduce Cost of Goods Sold (COGS)**](https://nory.ai/blog/cost-of-goods-sold-restaurant): Use data-driven systems to cut COGS and increase gross profit.
+    - [**Gross Margin Variance Fixes**](https://nory.ai/blog/tackle-gross-margin-variance-in-your-restaurant): Detect and fix margin leaks quickly with automated analytics.
+    - [**Forecasting Sales Accurately**](https://nory.ai/blog/simple-guide-to-accurately-forecasting-restaurant-sales): Avoid overstocking or shortages with better sales forecasting.
+    - [**Funding Your Restaurant Expansion**](https://nory.ai/blog/secure-restaurant-funding-with-nory-capital): Explore flexible funding options through Nory Capital.
+    - [**Create a Winning Pitch Deck**](https://nory.ai/blog/restaurant-funding-pitch-deck-tips): Design an investor-ready pitch that attracts hospitality funding.
+
+- **Workforce & Leadership**
+    - [**Smarter Workforce Scheduling**](https://nory.ai/blog/demand-based-schedule-in-restaurants): Build adaptive, demand-based schedules to reduce labour costs.
+    - [**Overcome Labour Shortages with Tech**](https://nory.ai/blog/how-technology-solve-labour-shortages-in-the-hospitality): Use automation to manage limited staff efficiently.
+    - [**Increase Employee Buy-In for Technology**](https://nory.ai/blog/increase-employee-buy-in-for-restaurant-technology): Improve adoption of new systems with effective leadership.
+    - [**Team Retention Strategies**](https://nory.ai/blog/how-to-reduce-restaurant-employee-turnover): Reduce turnover through better scheduling, recognition, and culture.
+
+- **AI & Technology**
+    - [**The Future of AI in Restaurants**](https://nory.ai/blog/why-ai-forecasting-is-essential-for-restaurant-success): How predictive analytics reshape inventory and staffing.
+    - [**Generative AI in Hospitality**](https://nory.ai/blog/mca-insights-the-immense-potential-of-generative-ai): How AI-generated insights improve customer experience.
+    - [**Intelligent Automation Trends**](https://nory.ai/blog/the-future-and-the-now-of-intelligent-automation-in-hospitality): How leading operators are embracing automation.
+    - [**Adopting AI in Daily Operations**](https://nory.ai/blog/how-nory-uses-ai-to-enhance-restaurant-operations): Integrate AI seamlessly into your workflow to boost control.
+
+- **Marketing & Growth**
+    - [**Menu Engineering Guide**](https://nory.ai/blog/restaurant-menu-engineering): Design your menu for maximum profitability and appeal.
+    - [**Franchise Growth Guide**](https://nory.ai/blog/how-to-scale-a-restaurant-franchise): Key steps to expanding your restaurant brand successfully.
+    - [**Restaurant Branding 101**](https://nory.ai/blog/restaurant-branding-tips): Build a memorable hospitality brand that customers love.
+
+### Educational eBooks
+- [**Casual Dining eBook**](https://nory.ai/download-casual-dining-ebook): Boost efficiency and handle cost increases effectively.
+- [**Coffee Operations eBook**](https://nory.ai/download-coffee-ebook): Learn how leading coffee chains scale with technology.
+- [**Inventory & Cost Control eBook**](https://nory.ai/download-inventory-ebook): Master the science of cost efficiency.
+- [**Labour Optimization eBook**](https://nory.ai/download-labour-ebook): Reduce labour costs and improve scheduling accuracy.
+- [**Restaurant Tech eBook**](https://nory.ai/download-restaurant-technology-ebook): A complete guide to modernizing restaurant operations.
+- [**Franchise Scaling eBook**](https://nory.ai/download-franchise-ebook): Expand your brand with consistent quality and control.
+- [**P&L Optimization eBook**](https://nory.ai/download-pl-ebook): Build financial resilience in hospitality.
+
+---
+
+## 🏢 Company
+*Learn about Nory, our mission, and how to get in touch.*
+
+- [**About Nory**](https://nory.ai/about): Our story, mission, and the innovation we're driving in restaurant management.
+- [**Careers**](https://nory.ai/careers): Join our mission to transform the restaurant industry.
+- [**Partner Program**](https://nory.ai/partner-program): Collaborate with Nory to deliver smarter, more connected restaurant solutions.
+- **Contact & Demos**
+    - [**Book a Chat**](https://nory.ai/book-a-chat): Schedule a personalized demo with our experts.
+    - [**Contact Us**](https://nory.ai/contact): Get in touch with our team for support and tailored solutions.
+- **Change Management**
+    - [**How We Manage Change**](https://nory.ai/how-we-manage-change): Discover how Nory supports restaurants in adopting new technology.
+- **Legal & Privacy**
+    - [**Privacy Policy**](https://nory.ai/legal/terms-privacy): Learn how Nory protects your data.
+    - [**Cookie Preferences**](https://nory.ai/legal/cookie-preferences): Manage your cookie settings.
+    - [**Data Deletion Request**](https://nory.ai/legal/request-data-deletion): Request deletion of your personal or business data.

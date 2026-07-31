@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nory-middleware-openapi.json
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: basePath /app/v1/ on https://sandbox.nory.ai
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  notes: No public deprecation/sunset policy located.
+sla:
+  url: null
+status_page: null
+status_page_notes: >-
+  A nory.statuspage.io host resolves but returns the generic unconfigured
+  Atlassian Statuspage placeholder, not a Nory-branded status page; not claimed.
+deprecated_operations: []

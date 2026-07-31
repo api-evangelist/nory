@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Nory Middleware
+  version: 1.0.0
+extends: openapi/nory-middleware-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        Real published Swagger 2.0 for the Nory Middleware sandbox. Enhancements
+        below are API Evangelist derivations, not mutations of the source spec.
+      x-api-evangelist-provider: nory
+      x-api-evangelist-artifacts:
+        - authentication/nory-authentication.yml
+        - errors/nory-problem-types.yml
+        - conventions/nory-conventions.yml
+        - data-model/nory-data-model.yml
+        - lifecycle/nory-lifecycle.yml
+        - mcp/nory-mcp.yml
+  - target: $.info
+    update:
+      x-recommended-improvements:
+        - Add operationId to every operation (currently absent).
+        - Declare a machine-readable error schema (application/problem+json / RFC 9457).
+        - Publish a public developer portal and API reference for the middleware.

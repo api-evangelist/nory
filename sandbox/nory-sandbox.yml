@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.nory.ai/swagger.json
+summary: >-
+  Nory publishes its Middleware API as a dedicated SANDBOX environment. The
+  Swagger definition is titled "Nory Middleware - Sandbox Environment" and its
+  primary server is the sandbox host. No canned test cards/tokens are published;
+  sandbox access requires partner credentials from Nory.
+environment:
+  name: sandbox
+  base_url: https://sandbox.nory.ai
+  base_path: /app/v1/
+  spec: https://api.nory.ai/swagger.json
+  local_dev_server: http://localhost:8000
+authentication:
+  obtain_token: POST /auth/token
+  body: {email, password}
+  returns: access token + refresh token
+  usage: Send the access token as a bearer token in the Authorization header.
+test_values:
+  published: false
+  notes: No published magic test values; sandbox is provisioned per partner.
