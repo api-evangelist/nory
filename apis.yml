@@ -208,7 +208,7 @@ common:
 - type: TermsOfService
   url: https://nory.ai/legal/terms-and-conditions
 - type: OpenAPI
-  url: openapi/nory-middleware-openapi.json
+  url: openapi/_original/nory-middleware-openapi.json
 - type: Overlay
   url: overlays/nory-middleware-overlay.yaml
 - type: Authentication
