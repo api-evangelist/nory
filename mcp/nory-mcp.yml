@@ -2,78 +2,82 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/nory-middleware-openapi.json
-notes: >-
-  No official hosted/remote Nory MCP server was found. This is a CANDIDATE tool
-  list derived one-tool-per-operation from the published Nory Middleware Swagger.
-  Operations have no operationId in the source spec, so tools are keyed by
-  method + path.
+notes: No official hosted/remote Nory MCP server was found. This is a CANDIDATE tool list derived one-tool-per-operation
+  from the published Nory Middleware Swagger. Operations have no operationId in the source spec, so tools
+  are keyed by method + path.
 server:
   name: nory
   transport: http
 tools:
-  - name: get_access_token
-    description: Exchange email + password for access and refresh tokens
-    source_operation: openapi/nory-middleware-openapi.json#POST /auth/token
-  - name: refresh_access_token
-    description: Get a new access token from a refresh token
-    source_operation: openapi/nory-middleware-openapi.json#POST /auth/refreshToken
-  - name: get_branch
-    description: Get a branch associated with the user
-    source_operation: openapi/nory-middleware-openapi.json#GET /branches/{id}
-  - name: get_brand
-    description: Get the brand associated with the user
-    source_operation: openapi/nory-middleware-openapi.json#GET /brands/brand
-  - name: get_integration_data
-    description: Get data from an integration service
-    source_operation: openapi/nory-middleware-openapi.json#GET /integration/{id}/{integrationName}/{type}
-  - name: ingest_inventory
-    description: Ingest items, batch items or menu items
-    source_operation: openapi/nory-middleware-openapi.json#POST /inventory/ingest
-  - name: list_branch_counts
-    description: Get inventory counts of a branch
-    source_operation: openapi/nory-middleware-openapi.json#GET /inventory/branches/{branchId}/counts
-  - name: create_branch_count
-    description: Create an inventory count
-    source_operation: openapi/nory-middleware-openapi.json#POST /inventory/branches/{branchId}/counts
-  - name: list_branch_deliveries
-    description: Get deliveries of a branch
-    source_operation: openapi/nory-middleware-openapi.json#GET /inventory/branches/{branchId}/deliveries
-  - name: list_suppliers
-    description: Get all suppliers
-    source_operation: openapi/nory-middleware-openapi.json#GET /inventory/suppliers
-  - name: get_recommended_order
-    description: Get recommended purchase orders for a branch
-    source_operation: openapi/nory-middleware-openapi.json#GET /inventory/brands/{brandId}/branches/{branchId}/recommended-order
-  - name: generate_recommended_order
-    description: Generate recommended purchase orders for a branch
-    source_operation: openapi/nory-middleware-openapi.json#POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order
-  - name: accept_recommended_order
-    description: Accept (or amend) a recommended order and create a purchase order
-    source_operation: openapi/nory-middleware-openapi.json#POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept
-  - name: get_punch
-    description: Get employee punch (labour) data by id
-    source_operation: openapi/nory-middleware-openapi.json#GET /punch/{id}
-  - name: list_punches
-    description: Get employee punch data from the labour service
-    source_operation: openapi/nory-middleware-openapi.json#GET /punch
-  - name: get_custom_holidays
-    description: Get custom holidays for a location
-    source_operation: openapi/nory-middleware-openapi.json#GET /settings/customHolidays/{id}
-  - name: create_custom_holidays
-    description: Create custom holidays for a location
-    source_operation: openapi/nory-middleware-openapi.json#POST /settings/customHolidays/{id}
-  - name: get_templates
-    description: Get scheduling templates for a branch
-    source_operation: openapi/nory-middleware-openapi.json#GET /templates/{id}
-  - name: create_template
-    description: Create a scheduling template for a branch
-    source_operation: openapi/nory-middleware-openapi.json#POST /templates/
-  - name: delete_template
-    description: Delete a scheduling template
-    source_operation: openapi/nory-middleware-openapi.json#DELETE /templates/{templateId}
-  - name: apply_template
-    description: Apply a scheduling template
-    source_operation: openapi/nory-middleware-openapi.json#POST /templates/apply
-  - name: request_template_recommendation
-    description: Request a scheduling template recommendation
-    source_operation: openapi/nory-middleware-openapi.json#POST /templates/recommendation
+- name: get_access_token
+  description: Exchange email + password for access and refresh tokens
+  source_operation: openapi/nory-middleware-openapi.json#POST /auth/token
+- name: refresh_access_token
+  description: Get a new access token from a refresh token
+  source_operation: openapi/nory-middleware-openapi.json#POST /auth/refreshToken
+- name: get_branch
+  description: Get a branch associated with the user
+  source_operation: openapi/nory-middleware-openapi.json#GET /branches/{id}
+- name: get_brand
+  description: Get the brand associated with the user
+  source_operation: openapi/nory-middleware-openapi.json#GET /brands/brand
+- name: get_integration_data
+  description: Get data from an integration service
+  source_operation: openapi/nory-middleware-openapi.json#GET /integration/{id}/{integrationName}/{type}
+- name: ingest_inventory
+  description: Ingest items, batch items or menu items
+  source_operation: openapi/nory-middleware-openapi.json#POST /inventory/ingest
+- name: list_branch_counts
+  description: Get inventory counts of a branch
+  source_operation: openapi/nory-middleware-openapi.json#GET /inventory/branches/{branchId}/counts
+- name: create_branch_count
+  description: Create an inventory count
+  source_operation: openapi/nory-middleware-openapi.json#POST /inventory/branches/{branchId}/counts
+- name: list_branch_deliveries
+  description: Get deliveries of a branch
+  source_operation: openapi/nory-middleware-openapi.json#GET /inventory/branches/{branchId}/deliveries
+- name: list_suppliers
+  description: Get all suppliers
+  source_operation: openapi/nory-middleware-openapi.json#GET /inventory/suppliers
+- name: get_recommended_order
+  description: Get recommended purchase orders for a branch
+  source_operation: openapi/nory-middleware-openapi.json#GET /inventory/brands/{brandId}/branches/{branchId}/recommended-order
+- name: generate_recommended_order
+  description: Generate recommended purchase orders for a branch
+  source_operation: openapi/nory-middleware-openapi.json#POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order
+- name: accept_recommended_order
+  description: Accept (or amend) a recommended order and create a purchase order
+  source_operation: openapi/nory-middleware-openapi.json#POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept
+- name: get_punch
+  description: Get employee punch (labour) data by id
+  source_operation: openapi/nory-middleware-openapi.json#GET /punch/{id}
+- name: list_punches
+  description: Get employee punch data from the labour service
+  source_operation: openapi/nory-middleware-openapi.json#GET /punch
+- name: get_custom_holidays
+  description: Get custom holidays for a location
+  source_operation: openapi/nory-middleware-openapi.json#GET /settings/customHolidays/{id}
+- name: create_custom_holidays
+  description: Create custom holidays for a location
+  source_operation: openapi/nory-middleware-openapi.json#POST /settings/customHolidays/{id}
+- name: get_templates
+  description: Get scheduling templates for a branch
+  source_operation: openapi/nory-middleware-openapi.json#GET /templates/{id}
+- name: create_template
+  description: Create a scheduling template for a branch
+  source_operation: openapi/nory-middleware-openapi.json#POST /templates/
+- name: delete_template
+  description: Delete a scheduling template
+  source_operation: openapi/nory-middleware-openapi.json#DELETE /templates/{templateId}
+- name: apply_template
+  description: Apply a scheduling template
+  source_operation: openapi/nory-middleware-openapi.json#POST /templates/apply
+- name: request_template_recommendation
+  description: Request a scheduling template recommendation
+  source_operation: openapi/nory-middleware-openapi.json#POST /templates/recommendation
+deployment:
+  mode: none
+  verified: derived
+  tools: 22
+  checked: '2026-08-12'
+  source: catalog MCP census
