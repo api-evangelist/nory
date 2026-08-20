@@ -43,6 +43,16 @@ tags:
 - Inventory
 - Workforce
 - Payroll
+- Point-of-Sale
+- Artificial Intelligence
+- Food and Beverage
+tags_raw:
+- Company
+- Restaurant
+- Hospitality
+- Inventory
+- Workforce
+- Payroll
 - Point of Sale
 - Artificial Intelligence
 - Food and Beverage
@@ -165,6 +175,8 @@ apis:
   humanURL: https://nory.ai/integrations
   baseURL: https://sandbox.nory.ai/app/v1
   tags:
+  - Refresh Token
+  tags_raw:
   - Refresh token
   properties:
   - type: OpenAPI
