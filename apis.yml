@@ -217,6 +217,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/nory-capability-edges.yml
+  name: Nory Business Capability Map
 - type: Website
   url: https://nory.ai/
 - type: Login

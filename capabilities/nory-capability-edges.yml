@@ -1,0 +1,46 @@
+slug: nory
+provider: Nory
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Employee Punch
+  spec_file: nory-employee-punch-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.78
+  evidence: GET /punch — Get Data from Labour service - Employee Punch information.
+  reason: Retrieval of employee clock-in/out (punch) records from the labour service is time-and-attendance
+    data feeding payroll/HR operations, consistent with the vendor's workforce scheduling and payroll
+    scope.
+- tag: Inventory
+  spec_file: nory-inventory-api-openapi.yml
+  capability_id: BC-4070.20
+  capability_id_l1: BC-4070
+  capability_name: F&B Procurement & Inventory
+  confidence: 0.78
+  evidence: POST /inventory/ingest — Ingest items / batch items / menu items; GET /inventory/branches/{branchId}/counts;
+    GET /inventory/branches/{branchId}/deliveries; GET /inventory/suppliers
+  reason: Stock counts, deliveries, suppliers and menu-item ingestion for restaurant branches is food
+    & beverage procurement and inventory operations for this hospitality-food vendor.
+- tag: Inventory Orders
+  spec_file: nory-inventory-orders-api-openapi.yml
+  capability_id: BC-4070.20
+  capability_id_l1: BC-4070
+  capability_name: F&B Procurement & Inventory
+  confidence: 0.72
+  evidence: POST /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept — Accept (or
+    amend) a recommended order and create a purchase order
+  reason: Demand-based recommended replenishment orders converted into purchase orders for restaurant
+    branches — F&B sourcing/replenishment; generic procurement PO management is a plausible alternative
+    reading, hence moderate confidence.
