@@ -187,7 +187,7 @@ apis:
   humanURL: https://nory.ai/integrations
   baseURL: https://sandbox.nory.ai/app/v1
   tags:
-  - Refresh token
+  - Refresh Token
   tags_raw:
   - Refresh token
   properties:
