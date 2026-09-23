@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Nory Middleware - Sandbox Environment Authorization Location Settings API
+  title: Nory Middleware - Sandbox Environment Location Settings API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Location Settings
 paths:
@@ -21,25 +17,21 @@ paths:
       summary: Get custom holidays for a location
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
-        required:
-        - name
+        required: true
       responses:
         '200':
           description: Requested data
-          schema: null
         '401':
           description: Permission error
         '500':
           description: Internal server error
+      operationId: getSettingsCustomHolidaysById
+      x-operation-id-source: derived
     post:
       tags:
       - Location Settings
@@ -47,30 +39,31 @@ paths:
       summary: Create custom holidays for a location by ID
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
-      - in: body
-        name: body
+        required: true
       responses:
         '204':
           description: Requested data
-          schema: null
         '400':
           description: Bad request
         '401':
           description: Permission error
         '500':
           description: Internal server error
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      operationId: postSettingsCustomHolidaysById
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header

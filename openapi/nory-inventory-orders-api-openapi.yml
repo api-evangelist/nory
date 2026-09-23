@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Nory Middleware - Sandbox Environment Authorization Inventory Orders API
+  title: Nory Middleware - Sandbox Environment Inventory Orders API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Inventory Orders
 paths:
@@ -22,10 +18,6 @@ paths:
       description: Returns recommended orders based on demand forecasting. Maps to inventory.handlers.recommended_order.get_recommended_orders.
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: brandId
@@ -73,6 +65,8 @@ paths:
           description: JWT token and username from client don't match
         '500':
           description: Unexpected error
+      operationId: getInventoryBrandsByBrandIdBranchesByBranchIdRecommendedOrder
+      x-operation-id-source: derived
     post:
       tags:
       - Inventory Orders
@@ -81,10 +75,6 @@ paths:
       description: Generates new recommended orders based on demand forecasting. Maps to inventory.handlers.recommended_order.generate_recommended_orders_handler.
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: brandId
@@ -121,6 +111,8 @@ paths:
           description: JWT token and username from client don't match
         '500':
           description: Unexpected error
+      operationId: postInventoryBrandsByBrandIdBranchesByBranchIdRecommendedOrder
+      x-operation-id-source: derived
   /inventory/brands/{brandId}/branches/{branchId}/recommended-order/accept:
     post:
       tags:
@@ -130,10 +122,6 @@ paths:
       description: Accepts a recommended order, optionally with edits, creates a PurchaseOrder linked to the recommended order, and returns the PO along with a classification ("accepted" when submitted quantities match the recommendation exactly, "amended" when the user edited them). Maps to inventory.handlers.recommended_order.recommended_order_accept_post.
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: brandId
@@ -162,9 +150,12 @@ paths:
           description: Recommended order is mid-creation or already submitted
         '500':
           description: Unexpected error
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      operationId: postInventoryBrandsByBrandIdBranchesByBranchIdRecommendedOrderAccept
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header

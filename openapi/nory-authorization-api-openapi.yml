@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
   title: Nory Middleware - Sandbox Environment Authorization API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Authorization
 paths:
@@ -19,24 +15,6 @@ paths:
       - Authorization
       name: Token
       summary: Get Access and Refresh tokens
-      produces:
-      - application/json
-      consumes:
-      - application/json
-      parameters:
-      - name: body
-        in: body
-        schema:
-          type: object
-          properties:
-            email:
-              type: string
-            password:
-              type: string
-              format: password
-        required:
-        - email
-        - password
       responses:
         '200':
           description: Token Sucess
@@ -44,9 +22,24 @@ paths:
           description: Bad username, not found in db
         '403':
           description: Username and password don't match
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                  format: password
+        required: true
+      operationId: postAuthToken
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header

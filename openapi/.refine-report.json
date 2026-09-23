@@ -1,16 +1,7 @@
 {
   "provider": "nory",
   "sources": [
-    "nory-authorization-api-openapi.yml",
-    "nory-branch-api-openapi.yml",
-    "nory-brands-api-openapi.yml",
-    "nory-employee-punch-api-openapi.yml",
-    "nory-integration-api-openapi.yml",
-    "nory-inventory-api-openapi.yml",
-    "nory-inventory-orders-api-openapi.yml",
-    "nory-location-settings-api-openapi.yml",
-    "nory-refresh-token-api-openapi.yml",
-    "nory-templates-api-openapi.yml"
+    "_original/nory-middleware-openapi.json"
   ],
   "outputs": [
     "nory-authorization-api-openapi.yml",
@@ -26,10 +17,35 @@
   ],
   "archived": [],
   "errors": [
-    "nory-inventory-api-openapi.yml: dangling $ref: #/definitions/Delivery",
-    "nory-inventory-api-openapi.yml: dangling $ref: #/definitions/Supplier"
+    "nory-middleware-openapi.json: dangling $ref: #/definitions/Delivery",
+    "nory-middleware-openapi.json: dangling $ref: #/definitions/Supplier"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "nory-middleware-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "nory-middleware-openapi.json: declared missing tag: Authorization",
+    "nory-middleware-openapi.json: declared missing tag: Branch",
+    "nory-middleware-openapi.json: declared missing tag: Brands",
+    "nory-middleware-openapi.json: declared missing tag: Employee Punch",
+    "nory-middleware-openapi.json: declared missing tag: Integration",
+    "nory-middleware-openapi.json: declared missing tag: Inventory",
+    "nory-middleware-openapi.json: declared missing tag: Inventory Orders",
+    "nory-middleware-openapi.json: declared missing tag: Location Settings",
+    "nory-middleware-openapi.json: declared missing tag: Refresh token",
+    "nory-middleware-openapi.json: declared missing tag: Templates",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "nory-authorization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-branch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-brands-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-employee-punch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-integration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-inventory-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-location-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-refresh-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nory-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Nory Middleware - Sandbox Environment Authorization Inventory API
+  title: Nory Middleware - Sandbox Environment Inventory API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Inventory
 paths:
@@ -21,36 +17,38 @@ paths:
       summary: Ingest items / batch items / menu items
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: body
-        schema:
-          $ref: '#/definitions/Ingest'
       responses:
         '200':
           description: Successful ingest message
-          schema:
-            type: object
-            properties:
-              status:
-                type: string
-              data:
-                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: string
         '400':
           description: Incorrect data supplied
-          schema:
-            type: object
-            properties:
-              error:
+          content:
+            application/json:
+              schema:
                 type: object
+                properties:
+                  error:
+                    type: object
         '401':
           description: No auth token
         '403':
           description: JWT token and username from client don't match
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ingest'
+      operationId: postInventoryIngest
+      x-operation-id-source: derived
   /inventory/branches/{branchId}/counts:
     get:
       tags:
@@ -59,30 +57,31 @@ paths:
       summary: Get counts of a branch
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: branchId
         schema: string
+        required: true
       responses:
         '200':
           description: List of counts
-          schema:
-            type: object
-            properties:
-              counts:
-                type: array
-                items:
-                  $ref: '#/definitions/Count'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  counts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Count'
         '400':
           description: Incorrect data supplied
         '401':
           description: No auth token
         '403':
           description: JWT token and username from client don't match
+      operationId: getInventoryBranchesByBranchIdCounts
+      x-operation-id-source: derived
     post:
       tags:
       - Inventory
@@ -90,26 +89,21 @@ paths:
       summary: Create a count
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: branchId
         schema: string
-      - in: body
-        name: body
-        schema:
-          $ref: '#/definitions/Count'
+        required: true
       responses:
         '200':
           description: Created count
-          schema:
-            type: object
-            properties:
-              count:
-                $ref: '#/definitions/Count'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    $ref: '#/components/schemas/Count'
         '400':
           description: Incorrect data supplied
         '401':
@@ -118,6 +112,13 @@ paths:
           description: JWT token and username from client don't match
         '500':
           description: Unexpected error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Count'
+      operationId: postInventoryBranchesByBranchIdCounts
+      x-operation-id-source: derived
   /inventory/branches/{branchId}/deliveries:
     get:
       tags:
@@ -126,30 +127,31 @@ paths:
       summary: Get deliveries of a branch
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: branchId
         schema: string
+        required: true
       responses:
         '200':
           description: List of deliveries
-          schema:
-            type: object
-            properties:
-              deliveries:
-                type: array
-                items:
-                  $ref: '#/definitions/Delivery'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deliveries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Delivery'
         '400':
           description: Incorrect data supplied
         '401':
           description: No auth token
         '403':
           description: JWT token and username from client don't match
+      operationId: getInventoryBranchesByBranchIdDeliveries
+      x-operation-id-source: derived
   /inventory/suppliers:
     get:
       tags:
@@ -158,100 +160,100 @@ paths:
       summary: Get all suppliers
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters: null
       responses:
         '200':
           description: List of suppliers
-          schema:
-            type: object
-            properties:
-              suppliers:
-                type: array
-                items:
-                  $ref: '#/definitions/Supplier'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  suppliers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Supplier'
         '400':
           description: Incorrect data supplied
         '401':
           description: No auth token
         '403':
           description: JWT token and username from client don't match
-definitions:
-  BrandItemCount:
-    type: object
-    properties:
-      brand_item:
-        type: string
-      unit_counts:
-        type: array
-        items:
-          $ref: '#/definitions/BrandItemUnitCount'
-  BrandItemUnitCount:
-    type: object
-    properties:
-      unit:
-        type: array
-        items:
-          $ref: '#/definitions/Unit'
-      quantity:
-        type: number
-  Count:
-    type: object
-    properties:
-      id:
-        type: string
-      created:
-        type: string
-        format: date-time
-      modified:
-        type: string
-        format: date-time
-      type:
-        type: string
-        enum:
-        - full
-      status:
-        type: string
-        enum:
-        - draft
-        - completed
-      branch_id:
-        type: string
-      brand_item_counts:
-        type: array
-        items:
-          $ref: '#/definitions/BrandItemCount'
-  BaseUnit:
-    type: object
-    properties:
-      unit_of_measure:
-        type: number
-  Unit:
-    type: object
-    properties:
-      unit_type:
-        type: string
-        enum:
-        - base
-        - package
-        - case
-      unit_body:
-        $ref: '#/definitions/BaseUnit'
-  Ingest:
-    type: object
-    properties:
-      brand_id:
-        type: string
-      ingest_type:
-        type: string
-      content:
-        type: string
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      operationId: getInventorySuppliers
+      x-operation-id-source: derived
+components:
+  schemas:
+    BaseUnit:
+      type: object
+      properties:
+        unit_of_measure:
+          type: number
+    Count:
+      type: object
+      properties:
+        id:
+          type: string
+        created:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum:
+          - full
+        status:
+          type: string
+          enum:
+          - draft
+          - completed
+        branch_id:
+          type: string
+        brand_item_counts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandItemCount'
+    Ingest:
+      type: object
+      properties:
+        brand_id:
+          type: string
+        ingest_type:
+          type: string
+        content:
+          type: string
+    Unit:
+      type: object
+      properties:
+        unit_type:
+          type: string
+          enum:
+          - base
+          - package
+          - case
+        unit_body:
+          $ref: '#/components/schemas/BaseUnit'
+    BrandItemUnitCount:
+      type: object
+      properties:
+        unit:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unit'
+        quantity:
+          type: number
+    BrandItemCount:
+      type: object
+      properties:
+        brand_item:
+          type: string
+        unit_counts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandItemUnitCount'
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header

@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Nory Middleware - Sandbox Environment Authorization Brands API
+  title: Nory Middleware - Sandbox Environment Brands API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Brands
 paths:
@@ -21,10 +17,6 @@ paths:
       summary: Get Brand associated with the User
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: query
         name: brandname
@@ -35,14 +27,16 @@ paths:
       responses:
         '200':
           description: A single brand object
-          schema: null
         '401':
           description: No auth token
         '403':
           description: JWT token and username from client don't match
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      operationId: getBrandsBrand
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header

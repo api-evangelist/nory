@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Nory Middleware - Sandbox Environment Authorization Templates API
+  title: Nory Middleware - Sandbox Environment Templates API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Templates
 paths:
@@ -21,25 +17,23 @@ paths:
       summary: Get Templates for the branch
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
+        required: true
       responses:
         '200':
           description: Requested data
-          schema: null
         '400':
           description: Bad request
         '401':
           description: Permission error
         '500':
           description: Internal server error
+      operationId: getTemplatesById
+      x-operation-id-source: derived
   /templates/:
     post:
       tags:
@@ -48,27 +42,27 @@ paths:
       summary: Create Template for the branch
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
-      - in: body
-        name: body
+        required: true
       responses:
         '204':
           description: Requested data
-          schema: null
         '400':
           description: Bad request
         '401':
           description: Permission error
         '500':
           description: Internal server error
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      operationId: postTemplates
+      x-operation-id-source: derived
   /templates/{templateId}:
     delete:
       tags:
@@ -77,29 +71,28 @@ paths:
       summary: Delete Template
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
+        required: true
       - in: path
         name: templateId
         schema:
           type: string
+        required: true
       responses:
         '204':
           description: Action successful
-          schema: null
         '400':
           description: Bad request
         '401':
           description: Permission error
         '500':
           description: Internal server error
+      operationId: deleteTemplatesByTemplateId
+      x-operation-id-source: derived
   /templates/apply:
     post:
       tags:
@@ -108,27 +101,27 @@ paths:
       summary: Apply Template
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
-      - in: body
-        name: body
+        required: true
       responses:
         '204':
           description: Requested data
-          schema: null
         '400':
           description: Bad request
         '401':
           description: Permission error
         '500':
           description: Internal server error
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      operationId: postTemplatesApply
+      x-operation-id-source: derived
   /templates/recommendation:
     post:
       tags:
@@ -137,30 +130,31 @@ paths:
       summary: Request Template Recommendation
       security:
       - bearerAuth: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
-      - in: body
-        name: body
+        required: true
       responses:
         '204':
           description: Requested data
-          schema: null
         '400':
           description: Bad request
         '401':
           description: Permission error
         '500':
           description: Internal server error
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      operationId: postTemplatesRecommendation
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header

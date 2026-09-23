@@ -1,15 +1,11 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Nory Middleware - Sandbox Environment Authorization Branch API
+  title: Nory Middleware - Sandbox Environment Branch API
   version: 1.0.0
-  description: 'Nory '
+  description: Nory
 servers:
 - https://sandbox.nory.ai
 - http://localhost:8000
-basePath: /app/v1/
-schemes:
-- https
-- http
 tags:
 - name: Branch
 paths:
@@ -19,28 +15,25 @@ paths:
       - Branch
       name: Get Branch
       summary: Get Branch associated with the User
-      consumes:
-      - application/json
-      produces:
-      - application/json
       parameters:
       - in: path
         name: id
         schema:
           type: string
-        required:
-        - name
+        required: true
       responses:
         '200':
           description: A single branch object
-          schema: null
         '401':
           description: No auth token
         '403':
           description: JWT token invalid
-securityDefinitions:
-  bearerAuth:
-    type: apiKey
-    name: Authorization
-    scheme: bearer
-    in: header
+      operationId: getBranchesById
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      scheme: bearer
+      in: header
