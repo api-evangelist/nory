@@ -182,11 +182,44 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    BaseUnit:
+    Ingest:
       type: object
       properties:
-        unit_of_measure:
+        brand_id:
+          type: string
+        ingest_type:
+          type: string
+        content:
+          type: string
+    BrandItemUnitCount:
+      type: object
+      properties:
+        unit:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unit'
+        quantity:
           type: number
+    Unit:
+      type: object
+      properties:
+        unit_type:
+          type: string
+          enum:
+          - base
+          - package
+          - case
+        unit_body:
+          $ref: '#/components/schemas/BaseUnit'
+    BrandItemCount:
+      type: object
+      properties:
+        brand_item:
+          type: string
+        unit_counts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandItemUnitCount'
     Count:
       type: object
       properties:
@@ -213,44 +246,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BrandItemCount'
-    Ingest:
+    BaseUnit:
       type: object
       properties:
-        brand_id:
-          type: string
-        ingest_type:
-          type: string
-        content:
-          type: string
-    Unit:
-      type: object
-      properties:
-        unit_type:
-          type: string
-          enum:
-          - base
-          - package
-          - case
-        unit_body:
-          $ref: '#/components/schemas/BaseUnit'
-    BrandItemUnitCount:
-      type: object
-      properties:
-        unit:
-          type: array
-          items:
-            $ref: '#/components/schemas/Unit'
-        quantity:
+        unit_of_measure:
           type: number
-    BrandItemCount:
-      type: object
-      properties:
-        brand_item:
-          type: string
-        unit_counts:
-          type: array
-          items:
-            $ref: '#/components/schemas/BrandItemUnitCount'
   securitySchemes:
     bearerAuth:
       type: apiKey
