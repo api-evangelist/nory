@@ -182,17 +182,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Unit:
-      type: object
-      properties:
-        unit_type:
-          type: string
-          enum:
-          - base
-          - package
-          - case
-        unit_body:
-          $ref: '#/components/schemas/BaseUnit'
     BrandItemUnitCount:
       type: object
       properties:
@@ -202,6 +191,20 @@ components:
             $ref: '#/components/schemas/Unit'
         quantity:
           type: number
+    BaseUnit:
+      type: object
+      properties:
+        unit_of_measure:
+          type: number
+    BrandItemCount:
+      type: object
+      properties:
+        brand_item:
+          type: string
+        unit_counts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandItemUnitCount'
     Count:
       type: object
       properties:
@@ -228,20 +231,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BrandItemCount'
-    BaseUnit:
+    Unit:
       type: object
       properties:
-        unit_of_measure:
-          type: number
-    BrandItemCount:
-      type: object
-      properties:
-        brand_item:
+        unit_type:
           type: string
-        unit_counts:
-          type: array
-          items:
-            $ref: '#/components/schemas/BrandItemUnitCount'
+          enum:
+          - base
+          - package
+          - case
+        unit_body:
+          $ref: '#/components/schemas/BaseUnit'
     Ingest:
       type: object
       properties:
