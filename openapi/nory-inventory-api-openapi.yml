@@ -182,29 +182,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    BrandItemUnitCount:
-      type: object
-      properties:
-        unit:
-          type: array
-          items:
-            $ref: '#/components/schemas/Unit'
-        quantity:
-          type: number
-    BaseUnit:
-      type: object
-      properties:
-        unit_of_measure:
-          type: number
-    BrandItemCount:
-      type: object
-      properties:
-        brand_item:
-          type: string
-        unit_counts:
-          type: array
-          items:
-            $ref: '#/components/schemas/BrandItemUnitCount'
     Count:
       type: object
       properties:
@@ -231,6 +208,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BrandItemCount'
+    Ingest:
+      type: object
+      properties:
+        brand_id:
+          type: string
+        ingest_type:
+          type: string
+        content:
+          type: string
+    BrandItemUnitCount:
+      type: object
+      properties:
+        unit:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unit'
+        quantity:
+          type: number
+    BaseUnit:
+      type: object
+      properties:
+        unit_of_measure:
+          type: number
+    BrandItemCount:
+      type: object
+      properties:
+        brand_item:
+          type: string
+        unit_counts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandItemUnitCount'
     Unit:
       type: object
       properties:
@@ -242,15 +251,6 @@ components:
           - case
         unit_body:
           $ref: '#/components/schemas/BaseUnit'
-    Ingest:
-      type: object
-      properties:
-        brand_id:
-          type: string
-        ingest_type:
-          type: string
-        content:
-          type: string
   securitySchemes:
     bearerAuth:
       type: apiKey
