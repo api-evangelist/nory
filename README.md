@@ -64,6 +64,109 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nory is a company surfaced as a portfolio company of accel and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Nory is an AI-powered restaurant management platform (an "agentic AI restaurant operating system") founded in Ireland in 2019 by Conor Sheridan. It unifies business intelligence, inventory, workforce scheduling and payroll into one control centre, using real-time data and predictive AI (demand-based ordering, live P&L, labour forecasting) to cut food waste and labour cost across single-site and multi-location restaurant groups. Nory connects to POS and hospitality systems such as Toast, Lightspeed, Square, SumUp, Vita Mojo, Clover, Zonal, Revel, Oracle Micros and Shift4, and exposes a partner-facing Middleware API (published as a Swagger 2.0 sandbox definition) covering brands, branches, inventory counts/deliveries/suppliers, AI recommended purchase orders, employee punch/labour data, location settings and scheduling templates. Nory raised a $37M Series B in 2025 and is backed by Accel.
 
-Backed by: accel — https://nory.ai/
+**Areas:** Company · Restaurant · Hospitality · Inventory · Workforce · Payroll · Point-of-Sale · Artificial Intelligence · Food and Beverage
+
+## Nory on APIs.io
+
+Everything profiled for Nory is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nory/](https://apis.io/providers/nory/)** — or go straight to one of the APIs or properties below.
+
+### APIs (10)
+
+- [Nory Authorization API](https://apis.io/apis/nory/nory-authorization-api/) — The Authorization API from Nory — 1 operation(s) for authorization.
+- [Nory Branch API](https://apis.io/apis/nory/nory-branch-api/) — The Branch API from Nory — 1 operation(s) for branch.
+- [Nory Brands API](https://apis.io/apis/nory/nory-brands-api/) — The Brands API from Nory — 1 operation(s) for brands.
+- [Nory Employee Punch API](https://apis.io/apis/nory/nory-employee-punch-api/) — The Employee Punch API from Nory — 2 operation(s) for employee punch.
+- [Nory Integration API](https://apis.io/apis/nory/nory-integration-api/) — The Integration API from Nory — 1 operation(s) for integration.
+- [Nory Inventory API](https://apis.io/apis/nory/nory-inventory-api/) — The Inventory API from Nory — 4 operation(s) for inventory.
+- [Nory Inventory Orders API](https://apis.io/apis/nory/nory-inventory-orders-api/) — The Inventory Orders API from Nory — 2 operation(s) for inventory orders.
+- [Nory Location Settings API](https://apis.io/apis/nory/nory-location-settings-api/) — The Location Settings API from Nory — 1 operation(s) for location settings.
+- [Nory Refresh token API](https://apis.io/apis/nory/nory-refresh-token-api/) — The Refresh token API from Nory — 1 operation(s) for refresh token.
+- [Nory Templates API](https://apis.io/apis/nory/nory-templates-api/) — The Templates API from Nory — 5 operation(s) for templates.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [nory](https://apis.io/servers/nory/nory/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Nory Middleware Overlay](https://apis.io/overlays/nory/nory-middleware-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nory Authentication](https://apis.io/security/nory/nory-authentication/)
+- [Nory Domain Security](https://apis.io/security/nory/nory-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://nory.ai/)
+- [Support](https://nory.ai/contact)
+- [Blog](https://nory.ai/blog)
+- [Terms of service](https://nory.ai/legal/terms-and-conditions)
+- [Privacy policy](https://nory.ai/legal/terms-privacy)
+
+## API Evangelist rating
+
+**Kin Score 30.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 35.1 |
+| Access clarity | 27.6 |
+
+**Agent readiness 17.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.7** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nory/](https://apis.io/providers/nory/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nory: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nory/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
